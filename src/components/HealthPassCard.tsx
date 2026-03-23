@@ -65,7 +65,7 @@ export function HealthPassCard({
     doc.setFont("helvetica", "normal");
     doc.setFontSize(6);
     doc.setTextColor(120, 130, 150);
-    doc.text("Rwanda Polytechnic · Smart Health Kiosk", w / 2, 19, { align: "center" });
+    doc.text("University of Rwanda · Smart Health Kiosk", w / 2, 19, { align: "center" });
 
     // Status badge
     doc.setFillColor(r, g, b);

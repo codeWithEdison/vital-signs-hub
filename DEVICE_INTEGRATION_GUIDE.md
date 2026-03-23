@@ -483,4 +483,4 @@ else console.log("Reading sent!");
 
 ---
 
-*Rwanda Polytechnic — Smart Health Kiosk Project*
+*University of Rwanda — Smart Health Kiosk Project*

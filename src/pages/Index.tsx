@@ -157,7 +157,7 @@ const Dashboard = () => {
       {/* Footer */}
       <footer className="border-t border-border bg-card/60">
         <div className="max-w-7xl mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-muted-foreground">
-          <span>© 2026 Smart Health Kiosk — Rwanda Polytechnic</span>
+          <span>© 2026 Smart Health Kiosk — University of Rwanda</span>
           <span>ESP32 · MAX30205 · MAX30102 · Ultrasonic</span>
         </div>
       </footer>
