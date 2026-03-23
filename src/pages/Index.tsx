@@ -60,16 +60,19 @@ const Dashboard = () => {
           <div className="absolute -top-24 -right-24 w-72 h-72 rounded-full bg-primary-foreground/[0.04]" />
           <div className="absolute bottom-0 -left-20 w-56 h-56 rounded-full bg-primary-foreground/[0.04]" />
         </div>
-        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 py-10 md:py-14">
-          <p className="text-primary-foreground/50 text-[11px] font-semibold uppercase tracking-[0.2em] mb-2">
-            University of Rwanda · IoT Project
-          </p>
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-primary-foreground leading-tight">
-            Contactless Vital Signs Kiosk
-          </h1>
-          <p className="mt-3 text-primary-foreground/60 text-sm max-w-lg">
-            Real-time health monitoring powered by ESP32, MAX30205 &amp; MAX30102 sensors.
-          </p>
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 py-10 md:py-14 flex items-center gap-6">
+          <img src={logo} alt="Contactless Sick-Bay logo" className="hidden sm:block h-24 md:h-28 w-auto drop-shadow-lg" />
+          <div>
+            <p className="text-primary-foreground/50 text-[11px] font-semibold uppercase tracking-[0.2em] mb-2">
+              University of Rwanda · IoT Project
+            </p>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-primary-foreground leading-tight">
+              Contactless Vital Signs Kiosk
+            </h1>
+            <p className="mt-3 text-primary-foreground/60 text-sm max-w-lg">
+              Real-time health monitoring powered by ESP32, MAX30205 &amp; MAX30102 sensors.
+            </p>
+          </div>
         </div>
       </header>
 
