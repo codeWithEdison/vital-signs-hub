@@ -65,8 +65,6 @@ export function HealthPassCard({
 
   return (
     <div className="bg-card rounded-2xl border border-border shadow-card animate-slide-up overflow-hidden h-full flex flex-col">
-      <div className={`h-1 ${barColor}`} />
-
       <div className="flex flex-col items-center px-5 py-6 flex-1 justify-center">
         <p className="text-[10px] font-semibold text-muted-foreground uppercase tracking-[0.15em] mb-3">
           Digital Health Pass
