@@ -33,15 +33,19 @@ export function StatusBadge({ status, size = "sm" }: StatusBadgeProps) {
 
   if (size === "lg") {
     return (
-      <div className={`inline-flex items-center gap-3 px-6 py-3 rounded-full border font-display font-semibold text-lg ${config.className} ${config.glowClass} animate-pulse-gentle`}>
-        <Icon className="w-6 h-6" />
+      <div
+        className={`inline-flex items-center gap-3 px-8 py-4 rounded-2xl border-2 font-display font-bold text-xl ${config.className} ${config.glowClass} animate-pulse-gentle`}
+      >
+        <Icon className="w-7 h-7" />
         {config.label}
       </div>
     );
   }
 
   return (
-    <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border text-xs font-semibold ${config.className}`}>
+    <span
+      className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-lg border text-xs font-bold uppercase tracking-wide ${config.className}`}
+    >
       <Icon className="w-3.5 h-3.5" />
       {config.label}
     </span>
