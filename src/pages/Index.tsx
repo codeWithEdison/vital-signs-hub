@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
-import { Thermometer, Heart, Wind, Activity, Shield, Clock } from "lucide-react";
+import { Thermometer, Heart, Wind, Activity, Clock } from "lucide-react";
+import logo from "@/assets/logo.png";
 import { DashboardCard } from "@/components/DashboardCard";
 import { HistoryTable } from "@/components/HistoryTable";
 import { VitalsChart } from "@/components/VitalsChart";
@@ -39,10 +40,8 @@ const Dashboard = () => {
       <nav className="sticky top-0 z-50 bg-card/80 backdrop-blur-md border-b border-border">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg bg-primary grid place-items-center">
-              <Shield className="w-4 h-4 text-primary-foreground" />
-            </div>
-            <span className="font-display font-bold text-foreground">HealthKiosk</span>
+            <img src={logo} alt="Contactless Sick-Bay logo" className="h-9 w-auto" />
+            <span className="font-display font-bold text-foreground">Sick-Bay Kiosk</span>
           </div>
           <div className="flex items-center gap-2 text-xs text-muted-foreground">
             <Clock className="w-3.5 h-3.5" />
