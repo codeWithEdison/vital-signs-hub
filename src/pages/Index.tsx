@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
-import { Thermometer, Heart, Wind, Activity, Shield, Clock } from "lucide-react";
+import { Thermometer, Heart, Wind, Activity, Clock } from "lucide-react";
+import logo from "@/assets/logo.png";
 import { DashboardCard } from "@/components/DashboardCard";
 import { HistoryTable } from "@/components/HistoryTable";
 import { VitalsChart } from "@/components/VitalsChart";
