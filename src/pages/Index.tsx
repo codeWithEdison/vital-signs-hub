@@ -194,23 +194,10 @@ const Dashboard = () => {
 
         {!loading && (
           <div className="space-y-8 -mt-8">
-            {/* Health Pass + Vitals Grid */}
+            {/* Vital Cards */}
             {latest ? (
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">
-                {/* Health Pass - spans left */}
-                <div className="lg:col-span-5">
-                  <HealthPassCard
-                    status={latest.status as HealthStatus}
-                    recommendation={latest.recommendation}
-                    temperature={latest.temperature}
-                    heartRate={latest.heart_rate}
-                    spo2={latest.spo2}
-                    timestamp={latest.created_at}
-                  />
-                </div>
-
-                {/* Vital Cards - right column */}
-                <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                   <DashboardCard
                     title="Temperature"
                     value={latest.temperature.toFixed(1)}
@@ -233,7 +220,19 @@ const Dashboard = () => {
                     variant="safe"
                   />
                 </div>
-              </div>
+
+                {/* Health Pass */}
+                <div className="max-w-md mx-auto w-full">
+                  <HealthPassCard
+                    status={latest.status as HealthStatus}
+                    recommendation={latest.recommendation}
+                    temperature={latest.temperature}
+                    heartRate={latest.heart_rate}
+                    spo2={latest.spo2}
+                    timestamp={latest.created_at}
+                  />
+                </div>
+              </>
             ) : (
               <div className="bg-card rounded-2xl border border-border p-16 shadow-card text-center animate-slide-up">
                 <div className="w-14 h-14 rounded-2xl bg-accent flex items-center justify-center mx-auto mb-5">
