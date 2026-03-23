@@ -27,21 +27,17 @@ export function DashboardCard({ title, value, unit, icon, variant = "primary" }:
   const style = variantStyles[variant];
 
   return (
-    <div className="group relative bg-card rounded-2xl border border-border p-6 shadow-card hover:shadow-card-hover transition-all duration-300 animate-slide-up overflow-hidden">
-      {/* Accent top bar */}
-      <div className={`absolute top-0 left-0 right-0 h-1 ${style.bar}`} />
+    <div className="group relative bg-card rounded-2xl border border-border p-5 shadow-card hover:shadow-card-hover transition-all duration-300 animate-slide-up overflow-hidden">
+      <div className={`absolute top-0 left-0 right-0 h-[3px] ${style.bar}`} />
 
-      <div className="flex items-start justify-between">
-        <div>
-          <p className="text-sm font-medium text-muted-foreground mb-2">{title}</p>
-          <div className="flex items-baseline gap-1.5">
-            <span className="text-4xl font-display font-bold text-foreground tracking-tight">{value}</span>
-            <span className="text-sm font-medium text-muted-foreground">{unit}</span>
-          </div>
-        </div>
-        <div className={`p-3 rounded-xl ${style.iconBg}`}>
-          {icon}
-        </div>
+      <div className={`w-10 h-10 rounded-xl ${style.iconBg} flex items-center justify-center mb-4`}>
+        {icon}
+      </div>
+
+      <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-1">{title}</p>
+      <div className="flex items-baseline gap-1">
+        <span className="text-3xl font-display font-bold text-foreground tracking-tight">{value}</span>
+        <span className="text-sm font-medium text-muted-foreground">{unit}</span>
       </div>
     </div>
   );

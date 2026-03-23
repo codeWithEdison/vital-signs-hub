@@ -5,19 +5,19 @@ const statusConfig = {
   SAFE: {
     label: "SAFE",
     icon: ShieldCheck,
-    className: "bg-status-safe-bg text-status-safe border-status-safe/20",
+    className: "bg-status-safe-bg text-status-safe border-status-safe/25",
     glowClass: "glow-safe",
   },
   WARNING: {
     label: "WARNING",
     icon: AlertTriangle,
-    className: "bg-status-warning-bg text-status-warning border-status-warning/20",
+    className: "bg-status-warning-bg text-status-warning border-status-warning/25",
     glowClass: "glow-warning",
   },
   ALERT: {
     label: "ALERT",
     icon: AlertCircle,
-    className: "bg-status-alert-bg text-status-alert border-status-alert/20",
+    className: "bg-status-alert-bg text-status-alert border-status-alert/25",
     glowClass: "glow-alert",
   },
 };
@@ -34,9 +34,9 @@ export function StatusBadge({ status, size = "sm" }: StatusBadgeProps) {
   if (size === "lg") {
     return (
       <div
-        className={`inline-flex items-center gap-3 px-8 py-4 rounded-2xl border-2 font-display font-bold text-xl ${config.className} ${config.glowClass} animate-pulse-gentle`}
+        className={`inline-flex items-center gap-2.5 px-6 py-3 rounded-xl border-2 font-display font-bold text-lg ${config.className} ${config.glowClass} animate-pulse-gentle`}
       >
-        <Icon className="w-7 h-7" />
+        <Icon className="w-6 h-6" />
         {config.label}
       </div>
     );
@@ -44,9 +44,9 @@ export function StatusBadge({ status, size = "sm" }: StatusBadgeProps) {
 
   return (
     <span
-      className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-lg border text-xs font-bold uppercase tracking-wide ${config.className}`}
+      className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md border text-[11px] font-bold uppercase tracking-wider ${config.className}`}
     >
-      <Icon className="w-3.5 h-3.5" />
+      <Icon className="w-3 h-3" />
       {config.label}
     </span>
   );

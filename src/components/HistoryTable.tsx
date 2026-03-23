@@ -1,6 +1,7 @@
 import { StatusBadge } from "./StatusBadge";
 import type { HealthStatus } from "@/lib/healthLogic";
 import { format } from "date-fns";
+import { Thermometer, Heart, Wind } from "lucide-react";
 
 interface VitalRecord {
   id: string;
@@ -20,11 +21,11 @@ export function HistoryTable({ records }: HistoryTableProps) {
   if (records.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center py-16 text-muted-foreground">
-        <svg className="w-16 h-16 mb-4 opacity-30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-        </svg>
-        <p className="font-medium">No readings yet</p>
-        <p className="text-sm mt-1">Vital signs will appear here when data is received</p>
+        <div className="w-12 h-12 rounded-xl bg-muted flex items-center justify-center mb-4">
+          <Thermometer className="w-5 h-5 text-muted-foreground/50" />
+        </div>
+        <p className="font-medium text-sm">No readings yet</p>
+        <p className="text-xs mt-1">Data will appear when sensors send readings</p>
       </div>
     );
   }
@@ -33,28 +34,42 @@ export function HistoryTable({ records }: HistoryTableProps) {
     <div className="overflow-x-auto">
       <table className="w-full">
         <thead>
-          <tr className="border-b border-border">
-            <th className="text-left py-3 px-4 text-xs font-semibold text-muted-foreground uppercase tracking-wider">Time</th>
-            <th className="text-left py-3 px-4 text-xs font-semibold text-muted-foreground uppercase tracking-wider">Temp (°C)</th>
-            <th className="text-left py-3 px-4 text-xs font-semibold text-muted-foreground uppercase tracking-wider">Heart Rate</th>
-            <th className="text-left py-3 px-4 text-xs font-semibold text-muted-foreground uppercase tracking-wider">SpO2</th>
-            <th className="text-left py-3 px-4 text-xs font-semibold text-muted-foreground uppercase tracking-wider">Status</th>
-            <th className="text-left py-3 px-4 text-xs font-semibold text-muted-foreground uppercase tracking-wider">Recommendation</th>
+          <tr className="border-b border-border bg-muted/30">
+            <th className="text-left py-3 px-5 text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Time</th>
+            <th className="text-left py-3 px-5 text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">
+              <span className="flex items-center gap-1.5"><Thermometer className="w-3 h-3" /> Temp</span>
+            </th>
+            <th className="text-left py-3 px-5 text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">
+              <span className="flex items-center gap-1.5"><Heart className="w-3 h-3" /> HR</span>
+            </th>
+            <th className="text-left py-3 px-5 text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">
+              <span className="flex items-center gap-1.5"><Wind className="w-3 h-3" /> SpO₂</span>
+            </th>
+            <th className="text-left py-3 px-5 text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Status</th>
           </tr>
         </thead>
         <tbody>
-          {records.map((record) => (
-            <tr key={record.id} className="border-b border-border/50 hover:bg-secondary/50 transition-colors">
-              <td className="py-3 px-4 text-sm text-muted-foreground">
-                {format(new Date(record.created_at), "MMM d, HH:mm:ss")}
+          {records.map((record, i) => (
+            <tr
+              key={record.id}
+              className="border-b border-border/40 hover:bg-muted/20 transition-colors"
+              style={{ animationDelay: `${i * 30}ms` }}
+            >
+              <td className="py-3 px-5 text-xs text-muted-foreground font-medium">
+                {format(new Date(record.created_at), "MMM d, HH:mm")}
               </td>
-              <td className="py-3 px-4 text-sm font-medium text-foreground">{record.temperature.toFixed(1)}</td>
-              <td className="py-3 px-4 text-sm font-medium text-foreground">{record.heart_rate}</td>
-              <td className="py-3 px-4 text-sm font-medium text-foreground">{record.spo2}%</td>
-              <td className="py-3 px-4">
+              <td className="py-3 px-5 text-sm font-semibold text-foreground tabular-nums">
+                {record.temperature.toFixed(1)}°C
+              </td>
+              <td className="py-3 px-5 text-sm font-semibold text-foreground tabular-nums">
+                {record.heart_rate} <span className="text-xs text-muted-foreground font-normal">bpm</span>
+              </td>
+              <td className="py-3 px-5 text-sm font-semibold text-foreground tabular-nums">
+                {record.spo2}%
+              </td>
+              <td className="py-3 px-5">
                 <StatusBadge status={record.status as HealthStatus} />
               </td>
-              <td className="py-3 px-4 text-sm text-muted-foreground">{record.recommendation}</td>
             </tr>
           ))}
         </tbody>
