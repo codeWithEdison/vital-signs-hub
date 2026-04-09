@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
-import { Thermometer, Heart, Wind, Activity, Clock } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Thermometer, Heart, Wind, Activity, Clock, FileText } from "lucide-react";
 import logo from "@/assets/logo.png";
 import { DashboardCard } from "@/components/DashboardCard";
 import { HistoryTable } from "@/components/HistoryTable";
@@ -43,13 +44,19 @@ const Dashboard = () => {
             <img src={logo} alt="Contactless Sick-Bay logo" className="h-9 w-auto" />
             <span className="font-display font-bold text-foreground">Sick-Bay Kiosk</span>
           </div>
-          <div className="flex items-center gap-2 text-xs text-muted-foreground">
-            <Clock className="w-3.5 h-3.5" />
-            <span className="hidden sm:inline">Live</span>
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute h-full w-full rounded-full bg-status-safe opacity-75" />
-              <span className="relative rounded-full h-2 w-2 bg-status-safe" />
-            </span>
+          <div className="flex items-center gap-3">
+            <Link to="/docs" className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-primary transition-colors">
+              <FileText className="w-3.5 h-3.5" />
+              <span className="hidden sm:inline">Docs</span>
+            </Link>
+            <div className="flex items-center gap-2 text-xs text-muted-foreground">
+              <Clock className="w-3.5 h-3.5" />
+              <span className="hidden sm:inline">Live</span>
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute h-full w-full rounded-full bg-status-safe opacity-75" />
+                <span className="relative rounded-full h-2 w-2 bg-status-safe" />
+              </span>
+            </div>
           </div>
         </div>
       </nav>
