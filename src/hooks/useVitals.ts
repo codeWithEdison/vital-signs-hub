@@ -40,8 +40,10 @@ export function useVitals() {
         "postgres_changes",
         { event: "INSERT", schema: "public", table: "vitals" },
         (payload) => {
-          setRecords((prev) => [payload.new as VitalRecord, ...prev].slice(0, 50));
-        }
+          setRecords((prev) =>
+            [payload.new as VitalRecord, ...prev].slice(0, 50),
+          );
+        },
       )
       .subscribe();
 
